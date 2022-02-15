@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="node_modules/@popperjs/core/dist/umd/popper-base.min.js"></script>
+    <script src="js/recipe.js"></script>
+    <script src="js/data.js"></script>
+
+    <title>Recipes</title>
+</head>
+<body>
+    <ul class="nav justify-content-center bg-dark text-white">
+        <h3 class="mt-2">Medicine recipes</h3>
+    </ul>
+
+    <div clas="container mt-5">
+        <div class ="row m-2">
+            <div class ="col">
+               <a class="btn btn-outline-success" href="pages/recipe.html">
+                    <i class="bi bi-plus-lg"></i>
+               </a>
+            </div>
+        </div>
+        <div class = "row m-2">
+            <div class ="col">
+                <table class ="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 60%;">Recipe</th>
+                            <th scope="col" style="width: 30%;"></th>
+                         </tr>
+                
+                    </thead>
+                    <tbody id="recipes">
+
+                    </tbody>
+                </table>
+        
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
