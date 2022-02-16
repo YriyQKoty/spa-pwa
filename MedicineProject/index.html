@@ -4,43 +4,77 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="node_modules/bulma/css/bulma.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-
-    <script src="js/recipe.js"></script>
-    <script src="js/data.js"></script>
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
 
     <title>Recipes</title>
 </head>
 <body>
-    <section class = "section">
-        <div class = "container">
-            <nav class= "navbar is-fixed-top has-background-dark p-1">
-                    <h3 class ="title has-text-white has-text-centered">Recipes</a>
-            </nav>
-        </div>
-   
-         <div style = "margin-top: 40px"> </div>
-    
-               <a class="button is-primary p-2" href="pages/recipe.html">
-                    <i class="material-icons">add</i>
-               </a>
-      
-        <div style = "margin-top: 20px"> </div>
-    
-                <table class ="table is-fullwidth has-margin-top-2">
-                    <thead>
-                        <tr>
-                            <th scope="col" style="width: 60%;">Recipe</th>
-                            <th scope="col" style="width: 30%;"></th>
-                         </tr>
-                
-                    </thead>
-                    <tbody id="recipes">
+   <ion-header>
+        <ion-toolbar>
+            <ion-title>Recipes</ion-title>
+        </ion-toolbar>
 
-                    </tbody>
-                </table>   
-    </section>
+   </ion-header>
+   <section id="main">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="12" size-md="6" >
+                    <ion-button id="add" color="success" size="large">
+                        <ion-icon name="add-circle-outline"></ion-icon>
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+            <iob-row>
+                <ion-col size="12" size-md="6" offset-md="3">
+                        <ion-list id="list">
+                            <ion-list-header>
+                                <ion-lable>
+                                    Recipe
+                                </ion-lable>
+                            </ion-list-header>
+                        </ion-list>
+                </ion-col>
+
+
+            </iob-row>
+        </ion-grid>
+
+   </section>
+   <section id="edit">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="12" size-md="6" offset-md="3">
+                    <ion-item>
+                        <ion-label position="floating">Recipe name</ion-label>
+                        <ion-input id="name"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">Quantity</ion-label>
+                        <ion-input id="quantity"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">Description</ion-label>
+                        <ion-input id="desc"></ion-input>
+                    </ion-item>
+                    <ion-button id="save" color="primary" size="medium" float-right style ="margin:20px">
+                        <ion-icon name="checkmark"></ion-icon>
+                    </ion-button>
+                </ion-col>
+
+
+            </ion-row>
+
+        </ion-grid>
+
+
+   </section>
+
+<script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+<script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+
+<script src="js/recipe.js"></script>
+<script src="js/data.js"></script>
+
 </body>
 </html>
