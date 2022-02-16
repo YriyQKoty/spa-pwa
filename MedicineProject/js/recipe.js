@@ -7,11 +7,11 @@ $('document').ready(function() {
       rowText = `<tr>
         <td>${row.name}</td>
         <td class = "text-right">
-            <a class ="btn btn-outline-secondary" href="pages/recipe.html?name=${row.name}">
-                <i class ="bi bi-pencil"></i>
+            <a class ="button primary" href="pages/recipe.html?name=${row.name}">
+                <i class ="fi fi-pencil"></i>
             </a>
-            <button type="button" class ="btn btn-outline-danger rem-row" rowid="${row.name}">
-                <i class="bi-trash"></i>
+            <button type="button" class ="button alert rem-row" rowid="${row.name}">
+                <i class="fi fi-trash"></i>
             </button>
         </td>
         </tr>
