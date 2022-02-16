@@ -5,53 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <link rel="stylesheet" href="../node_modules/materialize-css/dist/css/materialize.min.css">
+    <link rel="stylesheet" href="../node_modules/bulma/css/bulma.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="../node_modules/materialize-css/dist/js/materialize.min.js"></script>
+
     <script src="../js/recipe.js"></script>
     <script src="../js/data.js"></script>
 
     <title>Recipes</title>
 </head>
 <body>
-    <nav>
-        <div class="nav-wrapped">
-            <a class ="brand-logo">Recipes</a>
+    <section>
+        <div class = "container">
+            <nav class = "navbar is-fixed-top has-background-dark p-1">
+                 <h3 class= "title has-text-white has-text-centered" >Recipes</h3>
+            </nav>
         </div>
-    </nav>
-   
-
-    <div class ="container">
-        <div class ="row" style = "margin-top: 2rem">
-            <div class ="col m6 offset-m3 s12">
-               <form >
-                    <div class = "input-field col s12">
-                        <label for="name">Recipe name</label>
-                        <input type="text" class="validate" id="name" placeholder="Recipe name...">
-                    </div>
-                  
-                    <div class ="input-field col s12">
-                      <label for="quantity">Quantity</label>
-                      <input type="text" id="quantity" class="validate" placeholder="Quantity...">
-                    </div>
-                   
-                    <div class ="input-field col s12">
-                      <label for="desc">Description</label>
-                      <input type="text"  id="desc" class="validate" placeholder="Description">
-                    </div>
-                
-                    <div class = "input-field col s12 right-align">
-                        <a class="btn-floating waves-effect waves-light green" id ="save">
-                            <i class ="material-icons">done</i>
-                        </a>
-                    </div>
-                  
-               </form>
-            </div>
-        </div>
-    </div>
+    
    
     
+        <div style="margin-top: 7rem;"></div>
+               <form style="margin: 5rem 2rem;">
+                    <div class = "field is-horizontal">
+                        <div class = "field-label is-normal">
+                            <label for="name" class = "label">Recipe name</label>
+                        </div>
+
+                        <div class ="field-body">
+                            <div class="field">
+                                <p class="control" >
+                                    <input type="email" class="input" id ="name" placeholder="Recipe name...">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                  
+                    <div lass = "field is-horizontal">
+                        <div class = "field-label is-normal">
+                            <label for="quantity" class ="label">Quantity</label>
+                        </div>
+                    
+
+                        <div class ="field-body">
+                             <div class="field">
+                                 <p class="control" >
+                                     <input type="text" id="quantity" class="input" placeholder="Quantity...">
+                                 </p>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div lass = "field is-horizontal">
+                        <div class = "field-label is-normal">
+                            <label for="quantity" class ="label">Description</label>
+                        </div>
+                    
+
+                        <div class ="field-body">
+                             <div class="field">
+                                 <p class="control" >
+                                     <input type="text" id="desc" class="input" placeholder="Description...">
+                                 </p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <button style="margin-top: 1rem;" type="button" class="button is-primary" id ="save">
+                            <i class ="material-icons">done</i>
+                     </button>  
+               </form>
+       
+    </section>
 </body>
 </html>

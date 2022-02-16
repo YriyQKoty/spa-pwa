@@ -4,33 +4,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.min.css">
+    <link rel="stylesheet" href="node_modules/bulma/css/bulma.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
+
     <script src="js/recipe.js"></script>
     <script src="js/data.js"></script>
 
     <title>Recipes</title>
 </head>
 <body>
-    <nav>
-        <div class="nav-wrapper ">
-            <a class ="brand-logo">Recipes</a>
+    <section class = "section">
+        <div class = "container">
+            <nav class= "navbar is-fixed-top has-background-dark p-1">
+                    <h3 class ="title has-text-white has-text-centered">Recipes</a>
+            </nav>
         </div>
-    </nav>
    
-    <div class = "container" style = "margin-top: 40px">
-        <div class ="row">
-            <div class ="col m6 offset-m3 s12">
-               <a class="btn-floating btn-large waves-effect waves-light green" href="pages/recipe.html">
+         <div style = "margin-top: 40px"> </div>
+    
+               <a class="button is-primary p-2" href="pages/recipe.html">
                     <i class="material-icons">add</i>
                </a>
-            </div>
-        </div>
-        <div class = "row" >
-            <div class ="col m6 offset-m3 s12 no-padding">
-                <table class ="stripped">
+      
+        <div style = "margin-top: 20px"> </div>
+    
+                <table class ="table is-fullwidth has-margin-top-2">
                     <thead>
                         <tr>
                             <th scope="col" style="width: 60%;">Recipe</th>
@@ -41,11 +40,7 @@
                     <tbody id="recipes">
 
                     </tbody>
-                </table>
-        
-            </div>
-        </div>
-    </div>
-
+                </table>   
+    </section>
 </body>
 </html>
