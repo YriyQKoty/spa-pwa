@@ -6,12 +6,12 @@ $('document').ready(function() {
    for (let row of recipes) {
       rowText = `<tr>
         <td>${row.name}</td>
-        <td class = "text-right">
-            <a class ="button primary" href="pages/recipe.html?name=${row.name}">
-                <i class ="fi fi-pencil"></i>
+        <td class = "right-align">
+            <a class ="btn-floating waves-effect waves-light blue" href="pages/recipe.html?name=${row.name}">
+                <i class ="material-icons">edit</i>
             </a>
-            <button type="button" class ="button alert rem-row" rowid="${row.name}">
-                <i class="fi fi-trash"></i>
+            <button type="button" class ="btn-floating waves-effect waves-light red rem-row" rowid="${row.name}">
+                <i class="material-icons">delete</i>
             </button>
         </td>
         </tr>

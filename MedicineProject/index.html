@@ -4,32 +4,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-    <link rel="stylesheet" href="node_modules/foundation-sites/dist/css/foundation.min.css">
-    <link rel="stylesheet" href="node_modules/@icon/foundation-icons/foundation-icons.css">
+    <link rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="node_modules/foundation-sites/dist/js/foundation.min.js"></script>
+    <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
     <script src="js/recipe.js"></script>
     <script src="js/data.js"></script>
 
     <title>Recipes</title>
 </head>
 <body>
-    <div class="top-bar justify-content-center">
-        <h3>Medicine recipes</h3>
-    </div>
-
-  
-        <div class ="row" style = "margin: 2rem">
-            <div class ="columns">
-               <a class="button success" href="pages/recipe.html">
-                    <i class="fi fi-plus"></i>
+    <nav>
+        <div class="nav-wrapper ">
+            <a class ="brand-logo">Recipes</a>
+        </div>
+    </nav>
+   
+    <div class = "container" style = "margin-top: 40px">
+        <div class ="row">
+            <div class ="col m6 offset-m3 s12">
+               <a class="btn-floating btn-large waves-effect waves-light green" href="pages/recipe.html">
+                    <i class="material-icons">add</i>
                </a>
             </div>
         </div>
-        <div class = "row"  style = "margin: 1rem">
-            <div class ="columns">
-                <table class ="table">
+        <div class = "row" >
+            <div class ="col m6 offset-m3 s12 no-padding">
+                <table class ="stripped">
                     <thead>
                         <tr>
                             <th scope="col" style="width: 60%;">Recipe</th>
@@ -44,10 +45,7 @@
         
             </div>
         </div>
+    </div>
 
-    
-    <script>
-        $(document).foundation();
-    </script>
 </body>
 </html>
