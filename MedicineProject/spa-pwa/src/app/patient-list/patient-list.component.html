@@ -1,0 +1,13 @@
+<h4 class="center-align">List of patients</h4>
+<div class = "container">
+
+    <app-new-patient>
+    
+    </app-new-patient>
+    <app-patient 
+        *ngFor="let patient of patients; let i = index"
+        [patient]="patient" [patIndex]="i"
+    >
+    </app-patient>
+    
+</div>

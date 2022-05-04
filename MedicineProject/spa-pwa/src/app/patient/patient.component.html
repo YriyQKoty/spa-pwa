@@ -1,0 +1,57 @@
+
+<div class="container">
+<div class = "container row">
+    <div class = "col s12 m4 l12 offset-m3 center-align">
+        <img [src]=" patient.image">
+        
+        <h5>{{ patient.fullname }}</h5>
+           
+        <a class="btn-floating waves-effect waves-light blue"
+        (click)="showInfo=!showInfo">
+         <i *ngIf="showInfo" class ="material-icons">
+             keyboard_arrow_up
+         </i>   
+         <i *ngIf="!showInfo" class ="material-icons">
+            keyboard_arrow_down
+        </i>   
+    
+        </a>
+        <a [routerLink] ="'/recipes/'+patient.fullname"
+        class="btn-floating waves-effect waves-light blue-grey">
+            <i class="material-icons">view_headline</i>      
+        </a>
+    
+    
+
+    
+    </div>
+   
+
+
+</div>
+
+
+
+<div class = "row info" *ngIf="showInfo">
+    <div class = "col m6 offset-m3 s12">
+        <div class="input field">
+            <input id="name" type="text" class="validate" [(ngModel)] = "patient.fullname">
+            <label for="name" class="active">Patient name</label>
+            
+        </div>
+        <div class="input field">
+            <input id="doctor" type="text" class="validate" [(ngModel)] = "patient.doctor">
+            <label for="doctor" class="active">Doctor`s name</label>
+        </div>
+        <div class="input field">
+            <input id="recipes" type="number" class="validate" [(ngModel)] = "patient.recipes">
+            <label for="recipes" class="active">Recipes</label>
+        </div>
+
+        <a (click)="remPatient()" class="rem-row btn-floating waves-effect waves-light red">
+            <i class="material-icons">delete</i>   
+        </a>
+    </div>
+
+</div>
+</div>

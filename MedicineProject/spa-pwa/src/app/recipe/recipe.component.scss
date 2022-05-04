@@ -1,0 +1,15 @@
+div.recipe {
+    padding: 20px;
+    background: linen;
+    border-radius: 5px;
+    h3 {
+        margin-top: 0px;
+    }
+    p.quantity {
+        color: blue
+    }
+    p.description {
+        font-size: 0.8rem;
+        color: black
+    }
+}

@@ -1,0 +1,41 @@
+<div class="row">
+    <div class = "col m6 offset-m3 s12" *ngIf="!showForm">
+        <a (click)="showForm=true" 
+        class = "btn-floating btn-large waves-effect waves-light green">
+            <i class ="material-icons">add</i>
+        </a>
+    </div>
+    <div class="col m6 offset-m3 s12 my-from" *ngIf="showForm">
+        <form #myForm="ngForm" novalidate (ngSubmit)="onSubmit(myForm)">
+
+            <h5>New Patient</h5>
+            <div class="input-field">
+                <input required type="text" id="fullname" name="fullname" ngModel>
+                <label for="fullname">Fullname</label>
+            </div>
+            <div class="input-field">
+                <input required type="text" id="image" name="image" ngModel>
+                <label for="image">Image</label>
+            </div>
+            <div class="input-field">
+                <input required type="text" id="doctor" name="doctor" ngModel>
+                <label for="doctor">Doctor</label>
+            </div>
+            <div class="input-field">
+                <input required type="number" id="recipes" name="recipes" ngModel>
+                <label for="recipes">Recipes</label>
+            </div>
+
+            <div class="input-field">
+                <button type="button" (click)="showForm=false" class ="rem-row btn-floating waves-effect eaves-light left blue-grey">
+                    <i class="material-icons">keyboard_arrow_up</i>
+                </button>
+                <button type="submit" [disabled]="myForm.invalid" class ="rem-row btn-floating waves-effect eaves-light right green">
+                    <i class="material-icons">done</i>
+                </button>
+            </div>
+        </form>
+    </div>
+
+
+</div>

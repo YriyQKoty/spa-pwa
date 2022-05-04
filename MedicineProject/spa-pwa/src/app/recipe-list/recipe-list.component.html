@@ -1,0 +1,38 @@
+<div class="row valign-wrapper">
+    <div class="col m6 offset-m3 s12">
+        <a [routerLink]="'/patients'"
+        class="btn-floating waves-effect waves-light blue-grey">
+            <i class="material-icons">keyboard_arrow_left</i>
+        </a>
+    </div>
+
+
+
+</div>
+<div class="row valign-wrapper">
+    <div class="col m6 offset-m3 s12">
+        <h5 class="center-align">List of recipes: {{ patientName }}</h5>
+    </div>
+</div>
+
+<div class="row valign-wrapper">
+   
+    <table class="striped">
+        <thead class="highlight">
+            <tr>
+                <th>Recipe name</th>
+                <th>Quantity</th>
+                <th>Desciption</th>
+            </tr>
+        </thead>
+       <tbody *ngFor="let recipe of recipes">
+        <tr>
+            <th>{{recipe.recipeName}}</th>
+            <th>{{recipe.quantity}}</th>
+            <th>{{recipe.desc}}</th>
+        </tr>
+       </tbody>
+      
+    </table>
+</div>
+
