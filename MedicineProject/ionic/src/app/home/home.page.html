@@ -1,0 +1,70 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Patient Recipes
+    </ion-title>
+    <ion-buttons slot="secondary">
+      {{userName}}
+      <ion-button routerLink="/login" routerDirection="root">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>
+        Patients
+      </ion-label>
+      <ion-button shape="round" fill="outline" color="success" (click)="add()">
+        <ion-icon slot="start" name="add">
+        </ion-icon>Add
+      </ion-button>
+    </ion-list-header>
+
+    <app-patient *ngIf="showNew" 
+        [isNew]="true" 
+        (addPatient)="addPatient($event)"
+        (cancelAddingPatient)="showNew=false">
+    
+    </app-patient>
+
+
+  <div *ngFor="let patient of patients;let i = index">
+        <ion-item-sliding>
+          <ion-item-options side="start">
+            <ion-item-option color="primary" (click)="showEdit=i">
+              <ion-icon name="create"></ion-icon>Change
+            </ion-item-option>
+
+            <ion-item-option color="danger" (click)="delete(i)">
+              <ion-icon name="trash"></ion-icon>Delete
+            </ion-item-option>
+
+          
+          </ion-item-options>
+
+          <ion-item (click)="showEdit=-1">
+            <ion-img [src]="patient.image" slot="start"></ion-img>
+            <ion-label>{{patient.fullname}}</ion-label>
+            <ion-note slot="end">Recipes: {{patient.recipes}}</ion-note>
+          </ion-item>
+          
+          <ion-item-options>
+            <ion-item-option side="end" color="secondary" 
+            routerLink="/recipes/{{patient.fullname}}"
+            routerDirection="forward">
+              <ion-icon name="list"></ion-icon>List
+             </ion-item-option>
+          </ion-item-options>
+          
+        </ion-item-sliding>
+        <app-patient *ngIf="showEdit==i" 
+          [isNew]="false" 
+          [patient]="patient">
+        </app-patient>
+  </div>
+</ion-list>
+</ion-content>

@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Recipes {{patientName}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let recipe of recipes" text-wrap>
+      <ion-icon name="create" slot="start"></ion-icon>
+      <ion-label text-wrap>{{recipe.recipeName}}</ion-label>
+      <ion-label text-warp>{{recipe.quantity}}</ion-label>
+      <ion-note slot="end">{{recipe.desc}}</ion-note>
+    </ion-item>
+  </ion-list>
+</ion-content>
