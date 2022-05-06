@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
-import { MyComponent } from './my/my.component';
-import { RecipeComponent } from './recipe/recipe.component';
 import { PatientComponent } from './patient/patient.component';
 import { NewPatientComponent } from './new-patient/new-patient.component';
 import { PatientListComponent } from './patient-list/patient-list.component';
@@ -22,7 +20,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    RecipeComponent,
     PatientComponent,
     NewPatientComponent,
     PatientListComponent,
