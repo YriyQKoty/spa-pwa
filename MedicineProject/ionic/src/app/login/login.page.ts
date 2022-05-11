@@ -11,6 +11,7 @@ import { DataGetterService } from '../service/data-getter.service';
 export class LoginPage implements OnInit {
 
   userName: string
+  password: string;
 
   constructor(
     private router: Router, 
@@ -22,20 +23,33 @@ export class LoginPage implements OnInit {
   }
 
   login() {
-    if (this.dataGetter.userExists(this.userName)) {
-      this.dataGetter.setUser(this.userName)
-      this.router.navigate(['/home'])
-    } else {
-      this.userNotExistsAlert()
-    }
-
+   this.dataGetter.checkUser({
+      nickname: this.userName,
+      password: this.password
+    }).subscribe(result => {
+      if (result.hasOwnProperty('error')) {
+        this.userNotExistsAlert(result.error);
+      }
+      else {
+        if (result.hasOwnProperty('token')) {
+          this.dataGetter.setUser(this.userName);
+          this.dataGetter.setToken(result.token);
+          this.router.navigate(['/home']);
+        }
+        else {
+          this.userNotExistsAlert('Unexpected error!');
+        }
+      }
+    })
+  
+  
   }
 
-  async userNotExistsAlert() {
+  async userNotExistsAlert(message) {
     const alert = await this.alertContoller.create({
       header: "Attention!",
       subHeader: "Autorization failure!",
-      message: `User ${this.userName} was not found.` + "Incorrect user name.", 
+      message: message, 
       buttons: ['OK']
     });
 

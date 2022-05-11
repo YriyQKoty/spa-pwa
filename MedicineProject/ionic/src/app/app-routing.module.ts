@@ -18,7 +18,7 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'recipes/:patientName',
+    path: 'recipes/:id',
     loadChildren: () => import('./recipes/recipes.module').then( m => m.RecipesPageModule),
     canActivate: [AuthGuard]
   },

@@ -28,13 +28,35 @@ export class HomePage {
     this.showNew = true
   }
 
-  delete(index: number) {
-    this.dataGetter.deletePatient(index)
+  delete(patient) {
+    this.dataGetter.deletePatient(patient).subscribe(
+      res => this.dataGetter.getPatients().subscribe(
+        data => this.patients = data
+      )
+    )
   }
 
-  addPatient(patient) {
-    this.dataGetter.addPatient(patient)
+  addPatient(patient: Patient) {
+    this.dataGetter.addPatient(patient).subscribe(
+      res => this.dataGetter.getPatients().subscribe(
+      data => this.patients = data
+    ));
     this.showNew = false
+  }
+
+  refresh(toggle) {
+      this.dataGetter.getPatients().subscribe(
+        data => {
+          this.patients = data;
+          if (toggle) {
+
+            setTimeout(() => {
+              console.log('Async operation has ended');
+              toggle.target.complete();
+            }, 3000);
+          }
+        }
+      )
   }
 
 }

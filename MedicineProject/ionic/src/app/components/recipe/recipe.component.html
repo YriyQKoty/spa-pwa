@@ -1,0 +1,37 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>{{title}}</ion-card-title>
+  </ion-card-header>
+
+
+  <ion-card-content>
+    <ion-item>
+      <ion-label position="floating">Name</ion-label>
+      <ion-input type="text" [(ngModel)]="recipe.recipeName" name="recipeName"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Quantity</ion-label>
+      <ion-input type="number" [(ngModel)]="recipe.quantity" name="quantity"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Desc</ion-label>
+      <ion-input type="text" [(ngModel)]="recipe.desc" name="desc"></ion-input>
+    </ion-item>
+
+    <ion-button *ngIf="isNew" color="primary" (click)="addNew()">
+      <ion-icon slot="start" name="add-cirle"></ion-icon>Add
+    </ion-button>
+
+    
+    <ion-button *ngIf="isNew" color="danger" class="ion-float-right" (click)="cancelAdding()">
+      <ion-icon slot="end" name="close"></ion-icon>Cancel
+    </ion-button>
+
+    <ion-button *ngIf="!isNew" color="primary" class="ion-float-right" (click)="saveRecipe()">
+      <ion-icon slot="end" name="save"></ion-icon>Save
+    </ion-button>
+    
+  </ion-card-content>
+</ion-card>

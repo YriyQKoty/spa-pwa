@@ -8,12 +8,51 @@
 </ion-header>
 
 <ion-content>
+  <ion-list-header>
+    <ion-button shape="round" fill="outline" color="success" (click)="add()">
+     <ion-icon slot="start" name="add">
+      </ion-icon>Add
+   </ion-button>
+  </ion-list-header>
+
+  <app-recipe *ngIf="showNew" 
+        [patientId]="patientId"
+        [isNew]="true" 
+        (addRecipe)="addRecipe($event)"
+        (cancelAddingRecipe)="showNew=false">
+    
+    </app-recipe>
+
+
   <ion-list>
-    <ion-item *ngFor="let recipe of recipes" text-wrap>
-      <ion-icon name="create" slot="start"></ion-icon>
-      <ion-label text-wrap>{{recipe.recipeName}}</ion-label>
-      <ion-label text-warp>{{recipe.quantity}}</ion-label>
-      <ion-note slot="end">{{recipe.desc}}</ion-note>
-    </ion-item>
+    <div *ngFor="let recipe of recipes; let i = index">
+      <ion-item-sliding  text-wrap>
+        <ion-item-options side="start">
+
+          <ion-item-option color="primary" (click)="showEdit=i">
+            <ion-icon name="create"></ion-icon>Change
+          </ion-item-option>
+
+          <ion-item-option color="danger" (click)="delete(recipe)" >
+            <ion-icon name="trash" ></ion-icon>Delete
+          </ion-item-option>
+        </ion-item-options>
+
+          <ion-item>
+            <ion-icon name="create" slot="start"></ion-icon>
+            <ion-label text-wrap>{{recipe.recipeName}}</ion-label>
+            <ion-label text-warp>{{recipe.quantity}}</ion-label>
+            <ion-note slot="end">{{recipe.desc}}</ion-note>
+          </ion-item>
+
+      
+      </ion-item-sliding>
+      <app-recipe *ngIf="showEdit==i" 
+      [isNew]="false" 
+      [recipe]="recipe"
+      [patientId]="patientId">
+      </app-recipe>
+    </div>
+   
   </ion-list>
 </ion-content>

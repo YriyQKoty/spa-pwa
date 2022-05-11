@@ -39,7 +39,7 @@
               <ion-icon name="create"></ion-icon>Change
             </ion-item-option>
 
-            <ion-item-option color="danger" (click)="delete(i)">
+            <ion-item-option color="danger" (click)="delete(patient)">
               <ion-icon name="trash"></ion-icon>Delete
             </ion-item-option>
 
@@ -47,24 +47,39 @@
           </ion-item-options>
 
           <ion-item (click)="showEdit=-1">
-            <ion-img [src]="patient.image" slot="start"></ion-img>
+            <ion-icon name="logo-github" slot="start"></ion-icon>
             <ion-label>{{patient.fullname}}</ion-label>
-            <ion-note slot="end">Recipes: {{patient.recipes}}</ion-note>
+            <ion-note slot="end">Recipes: {{patient.recipes_quantity}}</ion-note>
           </ion-item>
           
           <ion-item-options>
             <ion-item-option side="end" color="secondary" 
-            routerLink="/recipes/{{patient.fullname}}"
+            routerLink="/recipes/{{patient.id}}"
             routerDirection="forward">
               <ion-icon name="list"></ion-icon>List
              </ion-item-option>
           </ion-item-options>
           
         </ion-item-sliding>
+
+
         <app-patient *ngIf="showEdit==i" 
           [isNew]="false" 
           [patient]="patient">
         </app-patient>
+
+        
+        <ion-refresher slot="fixed" snapback-duration="200ms" pullFactor="0.5" pullMin="35" pullMax="200" (ionRefresh)="refresh($event)">
+          <ion-refresher-content
+          pullingIcon="chevron-down-circle-outline"
+          pullingText="Pull to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Refreshing...">
+
+          </ion-refresher-content>
+        </ion-refresher>
+
+        
   </div>
 </ion-list>
 </ion-content>
