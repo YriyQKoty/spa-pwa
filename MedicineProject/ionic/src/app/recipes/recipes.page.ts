@@ -1,6 +1,8 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataGetterService } from '../service/data-getter.service';
+import { FireDataServiceService } from '../service/fire-data-service.service';
+import { Recipe } from '../service/data-getter.service';
 
 @Component({
   selector: 'app-recipes',
@@ -9,9 +11,9 @@ import { DataGetterService } from '../service/data-getter.service';
 })
 export class RecipesPage implements OnInit {
 
-  patientId: number;
+  patientId: string;
   patientName: string;
-  recipes: any[]
+  recipes: Recipe[]
   
   showNew = false
   showEdit = -1
@@ -19,9 +21,10 @@ export class RecipesPage implements OnInit {
   constructor(
     private dataGetter: DataGetterService,
     private route: ActivatedRoute,
+    private fireData: FireDataServiceService
  ) {
-  this.patientId = +this.route.snapshot.paramMap.get('id')
-  this.dataGetter.getRecipes(this.patientId).subscribe(data => {
+  this.patientId = this.route.snapshot.paramMap.get('id')
+  this.fireData.getRecipes(this.patientId).subscribe(data => {
     this.recipes = data
   })  
 
@@ -41,18 +44,11 @@ export class RecipesPage implements OnInit {
 
   delete(recipe) {
     console.log(recipe.id);
-    this.dataGetter.deleteRecipe(recipe).subscribe(
-      res => this.dataGetter.getRecipes(recipe.patientId).subscribe(
-        data => this.recipes = data
-      )
-    )
+    this.fireData.deleteRecipe(recipe)
   }
 
   addRecipe(recipe) {
-    this.dataGetter.addRecipe(recipe).subscribe(
-      res => this.dataGetter.getRecipes(recipe.patientId).subscribe(
-      data => this.recipes = data
-    ));
+    this.fireData.addRecipe(recipe)
     this.showNew = false
   }
 

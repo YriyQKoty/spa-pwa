@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DataGetterService,Patient } from '../service/data-getter.service';
+import { FireDataServiceService } from '../service/fire-data-service.service';
 
 @Component({
   selector: 'app-home',
@@ -15,13 +16,17 @@ export class HomePage {
   showNew = false
   showEdit = -1
 
-  constructor(private dataGetter: DataGetterService) {
-    this.dataGetter.getPatients().subscribe(
+  constructor(
+    private dataGetter: DataGetterService,
+    private fireBaseData: FireDataServiceService
+    
+    ) {
+    this.fireBaseData.getPatients().subscribe(
       (data) => {
         this.patients = data
       }
     )
-    this.userName = this.dataGetter.getUser()
+    this.userName = this.fireBaseData.getUser()
   }
 
   add() {
@@ -29,23 +34,16 @@ export class HomePage {
   }
 
   delete(patient) {
-    this.dataGetter.deletePatient(patient).subscribe(
-      res => this.dataGetter.getPatients().subscribe(
-        data => this.patients = data
-      )
-    )
+    this.fireBaseData.deletePatient(patient);
   }
 
   addPatient(patient: Patient) {
-    this.dataGetter.addPatient(patient).subscribe(
-      res => this.dataGetter.getPatients().subscribe(
-      data => this.patients = data
-    ));
+    this.fireBaseData.addPatient(patient);
     this.showNew = false
   }
 
   refresh(toggle) {
-      this.dataGetter.getPatients().subscribe(
+      this.fireBaseData.getPatients().subscribe(
         data => {
           this.patients = data;
           if (toggle) {

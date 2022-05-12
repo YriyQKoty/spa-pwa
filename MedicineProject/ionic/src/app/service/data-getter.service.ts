@@ -3,18 +3,21 @@ import {HttpClient} from '@angular/common/http'
  import { Observable, of } from 'rxjs';
 
 export interface Patient {
-  id: number,
+  //id: number, //mysql
+  id: string, //firebase
   fullname:string,
   doctor:string,
   recipes_quantity:number
 }
 
 export interface Recipe {
-  id: number,
+  id: number, //mysql
+  //id: string, //firebase
   recipeName:string,
   quantity:number,
   desc:string,
-  patientId:number
+  //patientId; //mysql
+  patientId:string //firebase
 }
 
 

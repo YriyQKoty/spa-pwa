@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { RecipesPage } from 'src/app/recipes/recipes.page';
 import { Recipe } from 'src/app/service/data-getter.service';
 import { DataGetterService } from 'src/app/service/data-getter.service';
+import { FireDataServiceService } from 'src/app/service/fire-data-service.service';
 
 @Component({
   selector: 'app-recipe',
@@ -13,13 +14,14 @@ export class RecipeComponent implements OnInit {
 
   @Input() recipe: Recipe;
   @Input() isNew: boolean;
-  @Input() patientId: number;
+  @Input() patientId: string;
   @Output() addRecipe = new EventEmitter();
   @Output() cancelAddingRecipe = new EventEmitter();
   title:string;
 
 
-  constructor(private dataGetter: DataGetterService) {
+  constructor(private dataGetter: DataGetterService,
+    private fireData:FireDataServiceService) {
 
   }
 
@@ -37,9 +39,7 @@ export class RecipeComponent implements OnInit {
   }
 
   saveRecipe() {
-    this.dataGetter.editRecipe(this.recipe).subscribe(
-      data => console.log(data)
-    )
+    this.fireData.editRecipe(this.recipe)
   }
 
   addNew() {
